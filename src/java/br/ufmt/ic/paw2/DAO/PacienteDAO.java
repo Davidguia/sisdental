@@ -26,5 +26,40 @@ public class PacienteDAO {
         return listaPaciente;
     }
     
+    public void gravar(final Paciente paciente) {
+        
+        Paciente merge;
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = session.beginTransaction();
+        
+        if ((paciente != null) && (paciente.getId() > 0)) {
+            merge = (Paciente)session.merge(paciente);
+            session.persist(merge);
+        }            
+        
+        else
+            session.persist(paciente);
+                
+        t.commit();
+
+    }
+    
+    public void excluir(final Paciente paciente) {
+        
+        Paciente merge;
+
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        Transaction t = session.beginTransaction();
+        
+        if ((paciente != null) && (paciente.getId() > 0)) {
+            merge = (Paciente)session.merge(paciente);
+            session.delete(merge);
+        }
+                
+        t.commit();
+
+    }
+    
     
 }

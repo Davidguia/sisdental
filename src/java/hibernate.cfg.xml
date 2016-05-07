@@ -9,7 +9,7 @@
     <property name="hibernate.connection.password"/>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
-    <mapping class="br.ufmt.ic.paw2.model.entities.Paciente"/>
-    <mapping class="br.ufmt.ic.paw2.model.entities.PacienteContato"/>
+    <mapping class="br.ufmt.ic.paw2.entities.Paciente"/>
+    <mapping class="br.ufmt.ic.paw2.entities.PacienteContato"/>
   </session-factory>
 </hibernate-configuration>

@@ -5,6 +5,7 @@
  */
 package br.ufmt.ic.paw2.beans;
 
+import br.ufmt.ic.paw2.DAO.PacienteDAO;
 import br.ufmt.ic.paw2.entities.Paciente;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -40,6 +41,13 @@ public class PacienteBean {
     }
 
     public List<Paciente> getListaPaciente() {
+        Paciente p = new Paciente();
+        p.setNome("Kleber Alves Furtado");
+        p.setDentistaContato("Dra. Irenir");
+        PacienteDAO dao = new PacienteDAO();
+        listaPaciente = dao.getListPaciente();
+        listaPaciente.add(p);
+        System.out.println("Ki moleza!!!");
         return listaPaciente;
     }
 
@@ -47,4 +55,15 @@ public class PacienteBean {
         this.listaPaciente = listaPaciente;
     }
     
+    public void gravar() {
+
+        PacienteDAO dao = new PacienteDAO();
+        dao.gravar(pacienteSelecionado);
+    }
+    
+    public void excluir() {
+        PacienteDAO dao = new PacienteDAO();
+        dao.excluir(pacienteSelecionado);
+    }
+            
 }
